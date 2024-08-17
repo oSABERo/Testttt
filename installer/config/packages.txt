@@ -1,0 +1,13 @@
+gcc
+zlib1g-dev
+libjpeg-dev
+libpng-dev
+libssl-dev
+libffi-dev
+libsqlite3-dev
+liblzma-dev
+libbz2-dev
+make
+git
+sqlite3
+nginx

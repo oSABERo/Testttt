@@ -7,10 +7,11 @@ sudo apt install -y $(cat /Testttt/installer/config/packages.txt)
 sudo apt install python3 python3-pip -y
 
 # Create a virtual environment
-python3 -m venv /Testttt/venv
+rm -rf venv
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirement.txt
 
-# Activate the virtual environment
-source /Testttt/venv/bin/activate
 
 # Install dependencies
 pip install -r /Testttt/requirement.txt

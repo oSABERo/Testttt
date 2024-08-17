@@ -36,6 +36,8 @@ sudo systemctl enable data.service
 sudo systemctl start backend.service
 sudo systemctl start data.service
 
-# Check service status
-sudo systemctl status backend.service
-sudo systemctl status data.service
+# Get the current IP address of the VM
+IP_ADDRESS=$(hostname -I | cut -d' ' -f1)
+
+# Run Uvicorn server with the IP address of the VM
+uvicorn apiii.main:app --reload --host $IP_ADDRESS --port 8080

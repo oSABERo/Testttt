@@ -15,9 +15,7 @@ source venv/bin/activate
 
 # Install dependencies from requirements.txt
 pip install -r requirements.txt
-
-# Check if the necessary packages are installed
-if ! pip freeze | grep -q 'Error'; then
+if [ $? -ne 0 ]; then
     echo "Error: Failed to install"
     exit 1
 fi
@@ -35,6 +33,10 @@ sudo systemctl enable data.service
 # Start service
 sudo systemctl start backend.service
 sudo systemctl start data.service
+
+# Check service status
+sudo systemctl status backend.service
+sudo systemctl status data.service
 
 # Get the current IP address of the VM
 IP_ADDRESS=$(hostname -I | cut -d' ' -f1)

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Update and install packages
+# Update and install necessary packages
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y $(cat /Testttt/installer/config/packages.txt)
-sudo apt install python3 python3-pip -y
+sudo apt install python3 python3-pip python3-venv -y
 
 # Create a virtual environment
 rm -rf venv

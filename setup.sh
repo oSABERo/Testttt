@@ -8,11 +8,11 @@ sudo apt install python3 python3-pip python3-venv -y
 
 # Create a virtual environment using a custom Python interpreter
 rm -rf venv
-/usr/local/python_dc/bin/python3 -m venv venv
+/usr/local/Testttt -m venv venv
 
 # Install dependencies from requirements.txt using the custom Python interpreter
 source venv/bin/activate
-/usr/local/python_dc/bin/python3 -m pip install -r /Testttt/requirements.txt
+/usr/local/Testttt -m pip install -r /Testttt/requirements.txt
 
 # Check if the necessary packages are installed
 if ! pip freeze | grep -q 'Error'; then

@@ -9,9 +9,9 @@ sudo apt install python3 python3-pip python3-venv -y
 # Create a virtual environment
 rm -rf venv
 python3 -m venv venv
-source venv/bin/activate
 
 # Install dependencies from requirements.txt
+source venv/bin/activate
 pip install -r /Testttt/apiii/requirements.txt
 
 # Check if the necessary packages are installed

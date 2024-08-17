@@ -10,11 +10,9 @@ sudo apt install python3 python3-pip -y
 rm -rf venv
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirement.txt
 
-
-# Install dependencies
-pip install -r /Testttt/requirement.txt
+# Install dependencies from requirements.txt
+pip install -r /Testttt/requirements.txt
 
 # Check if the necessary packages are installed
 if ! pip freeze | grep -q 'Error'; then

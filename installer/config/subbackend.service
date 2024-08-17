@@ -1,0 +1,14 @@
+[Unit]
+Description=backend-restarting service
+PartOf=data.service
+After=data.service
+After=backend.service
+
+[Service]
+User=root
+Group=root
+ExecStart=/usr/bin/python3 -m uvicorn apiii.main:app --host 192.168.1112.1150 --port 8080
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

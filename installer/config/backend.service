@@ -3,11 +3,11 @@ Description=Backend FastAPI Service
 After=network.target
 
 [Service]
-User=beer
+User=www-data
 Group=www-data
-WorkingDirectory= /var/www/Testttt/apiii
-Environment="PATH=/usr/local/Testttt/bin"
-ExecStart=/usr/bin/python3 -m uvicorn apiii.main:app --host 192.168.21.132 --port 8080
+WorkingDirectory=/var/www/Testttt/apiii
+Environment="PATH=/var/www/Testttt/venv/bin"
+ExecStart=/var/www/Testttt/venv/bin/uvicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind unix:/var/www/Testttt/backend.sock -m 007 apiii.main:app
 Restart=always
 
 [Install]

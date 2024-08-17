@@ -3,16 +3,18 @@
 # Update and install necessary packages
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y $(cat /Testttt/installer/config/packages.txt)
+sudo apt install -y $(cat installer/config/packages.txt)
 sudo apt install python3 python3-pip python3-venv -y
 
-# Create a virtual environment using a custom Python interpreter
+# Create a virtual environment
 rm -rf venv
-/usr/local/Testttt -m venv venv
+python3 -m venv venv
 
-# Install dependencies from requirements.txt using the custom Python interpreter
+# Activate the virtual environment
 source venv/bin/activate
-/usr/local/Testttt -m pip install -r /Testttt/requirements.txt
+
+# Install dependencies from requirements.txt
+pip install -r requirements.txt
 
 # Check if the necessary packages are installed
 if ! pip freeze | grep -q 'Error'; then
@@ -21,8 +23,9 @@ if ! pip freeze | grep -q 'Error'; then
 fi
 
 # Copy .service files to systemd directory
-sudo rsync /Testttt/installer/config/backend.service /etc/systemd/system/
-sudo rsync /Testttt/installer/config/data.service /etc/systemd/system/
+sudo rsync installer/config/backend.service /etc/systemd/system/
+sudo rsync installer/config/data.service /etc/systemd/system/
+sudo rsync installer/config/subbackend.service /etc/systemd/system/
 
 # Reload systemd daemon and enable services
 sudo systemctl daemon-reload

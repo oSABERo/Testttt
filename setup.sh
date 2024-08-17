@@ -1,31 +1,30 @@
 #!/bin/bash
 
-# Update and install necessary packages
+# Update and installcpackages
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y $(cat installer/config/packages.txt)
 sudo apt install python3 python3-pip python3-venv -y
 
-# Create a virtual environment
+# Createcenvironment
 rm -rf venv
 python3 -m venv venv
 
-# Activate the virtual environment
+# Activatecnvironment
 source venv/bin/activate
 
-# Install dependencies from requirements.txt
+# Installcrequirements.txt
 pip install -r requirements.txt
 if [ $? -ne 0 ]; then
     echo "Error: Failed to install"
     exit 1
 fi
 
-# Copy .service files to systemd directory
 sudo rsync installer/config/backend.service /etc/systemd/system/
 sudo rsync installer/config/data.service /etc/systemd/system/
 sudo rsync installer/config/subbackend.service /etc/systemd/system/
 
-# Reload systemd daemon and enable services
+# Reload and enable services
 sudo systemctl daemon-reload
 sudo systemctl enable backend.service
 sudo systemctl enable data.service
@@ -33,10 +32,6 @@ sudo systemctl enable data.service
 # Start service
 sudo systemctl start backend.service
 sudo systemctl start data.service
-
-# Check service status
-sudo systemctl status backend.service
-sudo systemctl status data.service
 
 # Get the current IP address of the VM
 IP_ADDRESS=$(hostname -I | cut -d' ' -f1)

@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=beer
 Group=www-data
-WorkingDirectory= ~/Desktop/Testttt/apiii
-ExecStart=/usr/bin/python3 -m uvicorn main:app --host 192.168.1112.1150 --port 8080
+WorkingDirectory= /Testttt/apiii
+ExecStart=/usr/bin/python3 -m uvicorn apiii.main:app --host 0.0.0.0 --port 8080
 Restart=always
 
 [Install]

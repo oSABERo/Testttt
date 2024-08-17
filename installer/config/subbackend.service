@@ -7,7 +7,7 @@ After=backend.service
 [Service]
 User=root
 Group=root
-ExecStart=/usr/bin/python3 -m uvicorn apiii.main:app --host 192.168.1112.1150 --port 8080
+ExecStart=/bin/bash /var/www/Testttt/.script/start.sh
 Restart=always
 
 [Install]

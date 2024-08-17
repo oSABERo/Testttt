@@ -12,7 +12,7 @@ python3 -m venv venv
 
 # Install dependencies from requirements.txt
 source venv/bin/activate
-/Testttt -m pip install -r /Testttt/requirements.txt
+pip install -r /Testttt/requirements.txt
 
 
 # Check if the necessary packages are installed

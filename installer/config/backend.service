@@ -7,7 +7,7 @@ User=www-data
 Group=www-data
 WorkingDirectory=/home/ubuntu/Testttt
 Environment="PATH=/home/ubuntu/Testttt/venv/bin"
-ExecStart=/usr/local/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind unix:/home/ubuntu/Testttt/backend.sock -m 007 main:app
+ExecStart=/home/ubuntu/venv/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind unix:/home/ubuntu/Testttt/backend.sock -m 007 main:app
 Restart=always
 
 [Install]

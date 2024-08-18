@@ -3,8 +3,8 @@ Description=Backend FastAPI Service
 After=network.target
 
 [Service]
-User=www-data
-Group=www-data
+User=root
+Group=root
 WorkingDirectory=/home/ubuntu/Testttt
 Environment="PATH=/home/ubuntu/Testttt/venv/bin"
 ExecStart=/home/ubuntu/venv/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8080 main:app

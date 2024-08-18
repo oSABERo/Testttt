@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectoryWorkingDirectory=/var/www/Testttt/apiii
-Environment="PATH=Testttt/venv/bin"
+WorkingDirectory=/var/www/Testttt/apiii
+Environment="PATH=/var/www/Testttt/venv/bin"
 ExecStart=Testttt/venv/bin/uvicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind unix:Testttt/backend.sock -m 007 apiii.main:app
 Restart=always
 

@@ -25,13 +25,13 @@ sudo rsync installer/config/data.service /etc/systemd/system/
 sudo rsync installer/config/subbackend.service /etc/systemd/system/
 
 # Reload and enable services
-sudo systemctl daemon-reload
-sudo systemctl enable backend.service
+#sudo systemctl daemon-reload
 sudo systemctl enable data.service
+sudo systemctl enable backend.service
 
 # Start service
-sudo systemctl start backend.service
 sudo systemctl start data.service
+sudo systemctl start backend.service
 
 # Get the current IP address of the VM
 IP_ADDRESS=$(hostname -I | cut -d' ' -f1)

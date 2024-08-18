@@ -37,4 +37,6 @@ sudo systemctl start data.service
 IP_ADDRESS=$(hostname -I | cut -d' ' -f1)
 
 # Run Uvicorn server with the IP address of the VM
-uvicorn apiii.main:app --reload --host $IP_ADDRESS --port 8080
+nohup uvicorn apiii.main:app --reload --host $IP_ADDRESS --port 8080 > /dev/null 2>&1 &
+
+print("Success to start uvicorn server with the IP address of the VM")

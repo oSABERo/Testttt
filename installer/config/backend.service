@@ -5,9 +5,9 @@ After=network.target
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectory=Testttt/
-Environment="PATH=Testttt/venv/bin"
-ExecStart=/usr/local/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind unix:Testttt/backend.sock -m 007 apiii.main:app
+WorkingDirectory=/home/ubuntu/Testttt
+Environment="PATH=/home/ubuntu/Testttt/venv/bin"
+ExecStart=/usr/local/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind unix:/home/ubuntu/Testttt/backend.sock -m 007 main:app
 Restart=always
 
 [Install]

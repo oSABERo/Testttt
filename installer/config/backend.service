@@ -7,7 +7,7 @@ User=root
 Group=root
 WorkingDirectory=/home/ubuntu/Testttt
 Environment="PATH=/home/ubuntu/Testttt/venv/bin"
-ExecStart=/home/ubuntu/venv/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8080 main:app
+ExecStart=/home/ubuntu/Testttt/venv/bin/gunicorn --workers 3 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8080 main:app
 Restart=always
 
 [Install]

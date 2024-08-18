@@ -39,4 +39,5 @@ IP_ADDRESS=$(hostname -I | cut -d' ' -f1)
 # Run Uvicorn server with the IP address of the VM
 nohup uvicorn apiii.main:app --reload --host $IP_ADDRESS --port 8080 > /dev/null 2>&1 &
 
-print("Success to start uvicorn server with the IP address of the VM")
+# Show Status 
+sudo systemctl status data.service
